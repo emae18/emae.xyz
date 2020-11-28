@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
+import "../styles/_imgBack.scss"
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
  * images with lazy loading and reduced file sizes. The image is loaded using a
@@ -16,9 +16,9 @@ import Img from "gatsby-image"
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "foto.jpeg" }) {
+      placeholderImage: file(relativePath: { eq: "foto.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid( quality:100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -30,7 +30,8 @@ const Image = () => {
     return <div>Picture not found</div>
   }
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <div className="foto"><Img fluid={data.placeholderImage.childImageSharp.fluid} style={{ maxHeight: "100%" , height: "100vh" }}
+  imgStyle={{ objectFit: "contain" }} /></div>
 }
 
 export default Image

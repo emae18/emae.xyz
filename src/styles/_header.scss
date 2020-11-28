@@ -1,0 +1,117 @@
+$blanco: #ffffff;
+$verde: #4EC198;
+$gris: #6A6B72;
+$negro: #60696b;
+$celesteFacha: #0399be;
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    
+}
+.hamburger{
+    padding: 0;
+    margin: 0;
+   // height: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul{
+        //height: 30px;
+        color: #6E6A6B;
+        padding: 0em;
+        list-style: none;
+        li{
+            //padding: 0px 20px;
+            font-size: large;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            a.no-select {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none; 
+                text-decoration: none;
+                border-color: $negro;
+                color: $blanco;
+                &:hover{
+                    color: $celesteFacha;
+                }
+            }
+            a{
+                transition: all 0.3s ease 0s;
+            }
+        }
+        
+    }
+}
+
+@media screen and(max-width:768px){
+    header{
+        //background-color: $celesteFacha;
+        height: 100%;
+        padding: 3px 0px;
+    }
+    .line{
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin:5px;
+    }
+    nav{
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .hamburger{
+        padding-right: 5px;
+        //background-color: $celesteFacha;
+        cursor: pointer;
+        z-index: 2;
+    }
+    .nav-links{
+        position: fixed;
+        background:$celesteFacha;
+        top: 0px;
+//        padding-top: 200%;
+        height: 50%;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(0px at 90% -10%);
+        -webkit-clip-path:circle(0px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .nav-links.open{
+        clip-path: circle(200% at 90% -10%);
+        -webkit-clip-path:circle(200% at 90% -10%);
+        pointer-events: all;
+        
+    }
+    .nav-links li {
+      opacity: 0;
+    }
+    .nav-links li a {
+      font-size: 25px;
+    }
+    .nav-links li:nth-child(1) {
+      transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2) {
+      transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3) {
+      transition: all 0.5s ease 0.6s;
+    }
+    li.fade {
+      opacity: 1;
+    }
+}
